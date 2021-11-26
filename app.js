@@ -4,8 +4,12 @@ const port = 8080;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Mission successful!');
+  res.setHeader('Content-Type', 'application/json');
+  response = {
+    'status': 'success',
+    'message': 'You are an OpenShift superstar!'
+  }
+  res.end(JSON.stringify(response));
 });
 
 server.listen(port, () => {
